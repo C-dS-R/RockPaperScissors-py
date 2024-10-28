@@ -4,32 +4,31 @@ from choiceValTrtFuncs import treatChoice
 
 
 #  Prompts user's choice
-def getChoice():
-    inp = input("""
-     Pick your move by typing one of the following numbers:
-                    [1] - Rock
-                    [2] - Paper
-                    [3] - Scissors
+def user_choice():
+    # Dialogue
+    print("\nPick your move by typing one of the following numbers:")
+    print("[1] - Rock".center(48))
+    print("[2] - Paper".center(48))
+    print("[3] - Scissors".center(48))
+    # print("(Alternatively, you can simply type its name. Initials and abbreviations are also an option)")
 
-(Alternatively, you can simply type its name. Initials and abbreviations are also an option)
-""")
-    print("""
-Your choice: """)
+    # Gets choice
+    inp = input()
+    print(f'\nYour choice:')
     return treatChoice(inp)
 
 
 #  Checks if user has won the round or not
-def doRound(p1,p2):
-     #first, prints a few dots to indicate the match is being calculated
-     print("                    ...")
+def do_round(player_choice,bot_choice):
+    # First, prints a few dots to show the match is being calculated
+    print("...".center(48))
 
 
+    #CALCULATING MATCH RESULTS
+    # Subtracts the choice indexes
+    result = player_choice-bot_choice
 
-
-     #gets the subtration of the choice indexes
-     sbt = p1-p2
-
-     #uses it to check who's the winner
-     if sbt==0: return "                   Tied." # tie case
-     elif sbt in [1, -2]: return "                  You won!" # victory cases
-     else: return "                  You lost." # loss case
+    # Uses it to check who's the winner
+    if result==0: return "Tied." # tie case
+    elif result in [1, -2]: return "You won!" # victory cases
+    else: return "You lost." # loss case
