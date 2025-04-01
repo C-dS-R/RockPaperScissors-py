@@ -6,12 +6,12 @@ while(True):
 
 	# Asks for user to choose a move
 	this_round.player_choice.prompt_user_choice()
-	print(f'Your choice: {this_round.player_choice.name()}')
+	print(f'Your choice: {this_round.player_choice.get_name()}')
 
 
 	#BOT CHOICE
 	this_round.bot_choice.choice_logic()
-	print(f'Adversary choice: {this_round.bot_choice.name()}')
+	print(f'Adversary choice: {this_round.bot_choice.get_name()}')
 
 	# EXECUTES ROUND
 	print("...".center(48)) # First, prints a few dots to show the match is being calculated

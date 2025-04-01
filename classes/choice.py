@@ -1,8 +1,9 @@
 class Choice:
     def __init__(self):
         self.idx:int #choice index. integer that represents the choice, and is used as a value for the subtraction in result calculation
-        self.name = lambda: {1:'Rock',2:'Paper',3:'Scissors'}[self.idx]
-
+    def get_name(self): # Using a function instead of a Lambda for better readability
+        """Gets choice name"""
+        return {1:'Rock',2:'Paper',3:'Scissors'}[self.idx]
 
 class ChoiceUser(Choice):
     def __init__(self):
