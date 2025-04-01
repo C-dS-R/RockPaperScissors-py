@@ -1,8 +1,10 @@
+from classes.choice import ChoiceUser,ChoiceBot
+
 class Round:
     def __init__(self):
         #choices:
-        self.player_choice:int
-        self.bot_choice:int
+        self.player_choice = ChoiceUser()
+        self.bot_choice = ChoiceBot()
 
         #results:
         self.is_player_winner:bool # if the player has won.
@@ -17,19 +19,15 @@ class Round:
 
         (OBS: Requires player_choice and bot_choice to be set first!)
         """
-        ###### CALCULATING MATCH RESULTS ######
         # Subtracts the choice indexes
-        result = self.player_choice - self.bot_choice
+        result = self.player_choice.idx - self.bot_choice.idx
 
         # Uses this subtraction to find the winner
-        ## VICTORY
-        if result in [1, -2]:
+        if result in [1, -2]: ## VICTORY
             self.is_player_winner = True
-        ## TIE
-        elif result == 0:
+        elif result == 0: ## TIE
             self.is_tied = True
-        ## LOSS
-        else:
+        else: ## LOSS
             self.is_player_winner = False
 
     ## GETS MATCH RESULT AS A STRING
@@ -38,6 +36,3 @@ class Round:
         if self.is_tied: return 'Tied.' # tie case
         elif self.is_player_winner: return 'You won!' # victory cases
         else: return 'You lost.' # loss case
-
-
-    #OBS: I currently plan on making a small interface for this in the future, hence why I'm not using one single function for this
