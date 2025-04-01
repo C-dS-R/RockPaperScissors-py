@@ -5,6 +5,7 @@ class Choice:
         """Gets choice name"""
         return {1:'Rock',2:'Paper',3:'Scissors'}[self.idx]
 
+
 class ChoiceUser(Choice):
     def __init__(self):
         super().__init__()
@@ -27,6 +28,7 @@ class ChoiceUser(Choice):
         # Gets the choice
         self.idx = int(input(prompt_dialogue))
         #TODO: input treatment
+
 
 
 class ChoiceBot(Choice):
